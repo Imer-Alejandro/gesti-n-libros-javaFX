@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="525.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bookstorage.HelloController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <Pane prefHeight="568.0" prefWidth="490.0">
+         <children>
+            <TextField fx:id="datoBusquedad" layoutX="137.0" layoutY="14.0" prefHeight="36.0" prefWidth="219.0" promptText="ingrese datos aqui..." />
+            <MenuButton layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="129.0" style="-fx-background-color: transparent; -fx-border-color: gray;" text="filtros">
+              <items>
+                <MenuItem mnemonicParsing="false" text="filtrar por autor" />
+                <MenuItem mnemonicParsing="false" text="filtrar por categoria" />
+                  <MenuItem mnemonicParsing="false" text="filtrar por nombre" />
+              </items>
+            </MenuButton>
+            <Button onAction="#buscarLibro" layoutX="363.0" layoutY="14.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="121.0" style="-fx-background-color: #3082e1;" text="buscar" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="8.0" layoutY="74.0" text="Listado de libros registrados" />
+            <ScrollPane layoutX="2.0" layoutY="101.0" prefHeight="387.0" prefWidth="485.0">
+              <content>
+                <AnchorPane fx:id="contenViewCard" minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="469.0">
+
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                </AnchorPane>
+              </content>
+            </ScrollPane>
+            <Button onAction="#abrirRegistroLibro" layoutX="-1.0" layoutY="494.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="485.0" style="-fx-background-color: #3add40;" text="registrar libro" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Pane fx:id="viewResult" prefHeight="560.0" prefWidth="485.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label layoutX="128.0" layoutY="14.0" text="Resultados de busquedad">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="12.0" layoutY="90.0" prefHeight="381.0" prefWidth="460.0">
+                    <content>
+                      <AnchorPane fx:id="contenResult" minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="448.0" />
+                    </content>
+                  </ScrollPane>
+                  <Button onAction="#cerrarResult" layoutX="357.0" layoutY="497.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="115.0" style="-fx-background-color: #3971b5;" text="Cerrar" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Pane fx:id="formCreateBook" layoutX="-1.0" layoutY="14.0" prefHeight="421.0" prefWidth="485.0" style=" -fx-border-color: gray; -fx-background-color: white;" visible="false">
+               <children>
+                  <Label layoutX="198.0" layoutY="14.0" text="Nuevo libro">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nombreLib" layoutX="41.0" layoutY="72.0" prefHeight="43.0" prefWidth="149.0" promptText="nombre del libro aqui..." />
+                  <TextField fx:id="autorLib" layoutX="200.0" layoutY="72.0" prefHeight="43.0" prefWidth="115.0" promptText="autor aqui..." />
+                  <TextArea fx:id="descriptionLib" layoutX="39.0" layoutY="147.0" prefHeight="99.0" prefWidth="408.0" promptText="description aqui.."  />
+                  <TextField fx:id="categoriaLib" layoutX="38.0" layoutY="281.0" prefHeight="43.0" prefWidth="162.0" promptText="categoria del libro aqui..." />
+                  <Button onAction="#asignarTema1"  layoutX="220.0" layoutY="281.0" minWidth="50.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: #D96941;" />
+                  <Button onAction="#asignarTema2"  layoutX="278.0" layoutY="281.0" minWidth="50.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: #C2C0A6;" />
+                  <Button onAction="#asignarTema3"  layoutX="336.0" layoutY="281.0" minWidth="50.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: #6A8C69;" />
+                  <Button onAction="#asignarTema4" layoutX="394.0" layoutY="281.0" minWidth="50.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: #026873;" />
+                  <TextField fx:id="paginasLib" layoutX="325.0" layoutY="72.0" prefHeight="43.0" prefWidth="115.0" promptText="paginas del libro" />
+                  <Label layoutX="41.0" layoutY="55.0" text="nombre">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="208.0" layoutY="55.0" text="autor">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="331.0" layoutY="55.0" text="paginas">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="131.0" text="description">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="265.0" text="categoria">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="220.0" layoutY="257.0" text="tema de presentacion">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Button onAction="#createBook" layoutX="348.0" layoutY="371.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="105.0" style="-fx-background-color: #3a86cd;" text="registrar" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button onAction="#cerrarRegistroLibro" layoutX="234.0" layoutY="371.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="105.0" style="-fx-background-color: transparent; -fx-border-color: #dd2c2c;" text="cancelar" textFill="#dd2c2c">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="formEdit" layoutX="5.0" layoutY="24.0" prefHeight="421.0" prefWidth="485.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <Label layoutX="198.0" layoutY="14.0" text="Editar libro">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="editNombre" layoutX="41.0" layoutY="72.0" prefHeight="43.0" prefWidth="149.0" promptText="nombre del libro aqui..." />
+                  <TextField fx:id="editAutor" layoutX="200.0" layoutY="72.0" prefHeight="43.0" prefWidth="115.0" promptText="autor aqui..." />
+                  <TextArea fx:id="editDescription" layoutX="39.0" layoutY="147.0" prefHeight="99.0" prefWidth="408.0" promptText="description aqui.." />
+                  <TextField  fx:id="editCategoria" layoutX="38.0" layoutY="281.0" prefHeight="43.0" prefWidth="162.0" promptText="categoria del libro aqui..." />
+                  <Button onAction="#asignarTema1" layoutX="220.0" layoutY="281.0" minWidth="50.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: #D96941;" />
+                  <Button onAction="#asignarTema2" layoutX="278.0" layoutY="281.0" minWidth="50.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: #C2C0A6;" />
+                  <Button onAction="#asignarTema3" layoutX="336.0" layoutY="281.0" minWidth="50.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: #6A8C69;" />
+                  <Button onAction="#asignarTema4" layoutX="394.0" layoutY="281.0" minWidth="50.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="50.0" style="-fx-background-color: #026873;" />
+                  <TextField fx:id="editPagina" layoutX="325.0" layoutY="72.0" prefHeight="43.0" prefWidth="115.0" promptText="paginas del libro" />
+                  <Label layoutX="41.0" layoutY="55.0" text="nombre">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="208.0" layoutY="55.0" text="autor">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="331.0" layoutY="55.0" text="paginas">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="131.0" text="description">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="265.0" text="categoria">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="220.0" layoutY="257.0" text="tema de presentacion">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Button onAction="#editarLibro" layoutX="348.0" layoutY="371.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="105.0" style="-fx-background-color: #3a86cd;" text="guardar" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button onAction="#cerrarEditar" layoutX="234.0" layoutY="371.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="105.0" style="-fx-background-color: transparent; -fx-border-color: #dd2c2c;" text="cancelar" textFill="#dd2c2c">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</VBox>
